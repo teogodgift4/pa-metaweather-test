@@ -26,4 +26,5 @@ const minmaxTemp = (min, max) =>{
     );
 }
 
+
 export default Weather;
