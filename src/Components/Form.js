@@ -5,21 +5,21 @@ export default class Form extends React.Component {
     constructor(props) {
     super(props);
     this.state = {value: props.value,
-            city:'New York',
-            weather:'Heavy Clouds',
-            wind_comp:'NNE',
-            min_temp:0,
-            max_temp:4,
-            temp:3,
-            wind_speed:5,
-            wind_dir:17,
-            air:1023,
-            hum:56,
-            visib:10.345,
-            weather_state:'hc',
-            created:'2021-08-26T',
-            app_date:'2021-08-26',
-            predict:'70.000054'
+            city:'',
+            weather:'',
+            wind_comp:'',
+            min_temp:'',
+            max_temp:'',
+            temp:'',
+            wind_speed:'',
+            wind_dir:'',
+            air:'',
+            hum:'',
+            visib:'',
+            weather_state:'',
+            created:'',
+            app_date:'',
+            predict:''
           
     };
   
@@ -48,30 +48,29 @@ export default class Form extends React.Component {
             city:this.state.value,
             weather:response.consolidated_weather[0].weather_state_name,
             wind_comp:response.consolidated_weather[0].wind_direction_compass,
-            min_temp:response.consolidated_weather[0].min_temp,
-            max_temp:response.consolidated_weather[0].max_temp,
-            temp:response.consolidated_weather[0].the_temp,
-            wind_speed:response.consolidated_weather[0].wind_speed,
-            wind_dir:response.consolidated_weather[0].wind_direction,
-            air:response.consolidated_weather[0].air_pressure,
-            hum:response.consolidated_weather[0].humidity,
-            visib:response.consolidated_weather[0].visibility,
-            weather_state:response.consolidated_weather[0].weather_state_abbr,
+            min_temp:response.consolidated_weather[0].min_temp.toFixed(2),
+            max_temp:response.consolidated_weather[0].max_temp.toFixed(2),
+            temp:response.consolidated_weather[0].the_temp.toFixed(2),
+            wind_speed:response.consolidated_weather[0].wind_speed.toFixed(2),
+            wind_dir:response.consolidated_weather[0].wind_direction.toFixed(2),
+            air:response.consolidated_weather[0].air_pressure.toFixed(2),
+            hum:response.consolidated_weather[0].humidity.toFixed(2),
+            visib:response.consolidated_weather[0].visibility.toFixed(2),
+            weather_state:'https://www.metaweather.com/static/img/weather/'+response.consolidated_weather[0].weather_state_abbr+'.svg',
             created:response.consolidated_weather[0].created,
             app_date:response.consolidated_weather[0].applicable_date,
-            predict:response.consolidated_weather[0].predictability,
+            predict:response.consolidated_weather[0].predictability.toFixed(2)+'%',
         });
   }
 
   render() {
     return (
         <>
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
+      <form className="form-inline" onSubmit={this.handleSubmit}>
+      <div className="form-group" id="form-wrapper">
+          <input className="form-control" id="city" name="city" placeholder="Please enter a valid city" type="text" value={this.state.value} onChange={this.handleChange} />
+        <input className="form-control btn btn-primary" id="submit" type="submit" value="Submit" />
+        </div>
       </form>
       <Weather 
     cityname={this.state.city}

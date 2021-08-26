@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#form-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#submit{
+  max-width: 300px;
+  text-align: center;
+}
+
+body{
+  background: url(./img/background.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1,h3,h4,span{
+  color:white;
+}
+
+html, body{
+  height: 100%;
+}
+
+.wrapper-span{
+  margin-bottom: 15px;
+}

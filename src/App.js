@@ -11,9 +11,9 @@ export default class App extends Component{
     }
 render(){
   return (
-    <>
-    <Form value={this.state.value} />
-    </>
+    <div className="container">
+        <Form value={this.state.value} />
+    </div>
   );
   }
 }
