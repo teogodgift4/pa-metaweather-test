@@ -1,5 +1,5 @@
 import React from "react";
-
+import Form from "./Form";
 
 const Weather = (props) => {
     return(
@@ -19,6 +19,10 @@ const Weather = (props) => {
                 <h4 className="py-3">{props.air_val}</h4>
                 <h4 className="py-3">{props.hum_val}</h4>
                 <h4 className="py-3">{props.visib_val}</h4>
+                <h4 className="py-3">{props.weather_state}</h4>
+                <h4 className="py-3">{props.created}</h4>
+                <h4 className="py-3">{props.app_date}</h4>
+                <h4 className="py-3">{props.predict}</h4>
             </div>
         </div>
     );
